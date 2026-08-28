@@ -1,0 +1,26 @@
+{
+  "eval_version": "1.0.0",
+  "skill_version": "1.0.0",
+  "cases": [
+    {
+      "id": "complete-headless-workflow",
+      "command": "python scripts/headless_e2e.py",
+      "expected_status": "PASS",
+      "assertions": ["deterministic build", "package validation", "HTML publish path", "image label path", "no upstream identity in generated output"]
+    },
+    {
+      "id": "reject-incomplete-discovery",
+      "input": "fixtures/brand-source.invalid.json",
+      "expected_status": "FAIL",
+      "expected_error_codes": ["E_OPEN_DECISIONS", "E_FONT_LICENSE", "E_COLOR_HEX", "E_ACCENT_PERCENT"]
+    }
+  ],
+  "release_thresholds": {
+    "skill_structure": 1.0,
+    "deterministic_build": 1.0,
+    "source_validation": 1.0,
+    "package_validation": 1.0,
+    "identity_cleanup": 1.0,
+    "headless_execution": 1.0
+  }
+}

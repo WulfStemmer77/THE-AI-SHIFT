@@ -1,0 +1,21 @@
+name: brand-kit
+package_version: 1.0.0
+status: pilot
+owner: THE-AI-SHIFT
+source:
+  notice: THIRD_PARTY_NOTICES.md
+  commit: e0be9947c38191f6eae6d1076cb699ecae8cf701
+  license: MIT
+modes:
+  - setup
+  - interview
+  - build
+  - publish
+contracts:
+  source_schema: 1.0.0
+  package_schema: 1.0.0
+runtime:
+  provider_neutral: true
+  deterministic_build: true
+  external_mutations_require_authorization: true
+  human_release_gate: required

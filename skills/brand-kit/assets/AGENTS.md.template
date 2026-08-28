@@ -1,0 +1,9 @@
+# Brand operating rules for <BRAND_NAME>
+
+1. Read `BRAND.md` and `brand.tokens.json` before visual or audience-facing work.
+2. `BRAND.md` is authoritative for brand decisions; `REFERENCE.md` preserves rationale. Accessibility, factual accuracy, safety, and law remain hard constraints.
+3. Use only defined tokens. Do not introduce colors, fonts, spacing, radii, imagery styles, or voice rules without approval.
+4. Apply banned visual and verbal patterns exactly.
+5. Reuse `examples/reference.html` before inventing a new component treatment.
+6. Do not alter the brand package or its version without named approval.
+7. Validate outputs and record any approved deviation before external release.

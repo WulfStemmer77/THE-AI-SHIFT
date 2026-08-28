@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "brand": {"id": "ai-shift-eval", "name": "AI SHIFT Eval", "version": "1.0.0", "language": "en"},
+  "positioning": {
+    "one_liner": "A governed enterprise AI practice that turns probabilistic reasoning into controlled business execution.",
+    "audiences": ["Enterprise transformation leaders", "Business process owners"],
+    "category": "Governed enterprise AI",
+    "promise": "Useful AI execution inside a controlled and auditable operating model.",
+    "differentiators": ["Vendor-neutral governance", "Deterministic execution boundaries", "Human authority by design"],
+    "evidence": ["Versioned skills, schemas, validation gates, and run records"]
+  },
+  "personality": {
+    "traits": ["precise", "calm", "decisive", "premium"],
+    "anti_traits": ["hyped", "needy", "generic"]
+  },
+  "architecture": {
+    "model": "single-brand",
+    "rules": ["AI SHIFT is the master brand", "Product names are endorsed by AI SHIFT"]
+  },
+  "visual": {
+    "colors": {
+      "background": "#0B0D10", "surface": "#15191F", "text": "#F4F1E8",
+      "muted": "#A7ADB5", "border": "#303640", "accent": "#C4A45F",
+      "accent_ink": "#0B0D10", "accent_max_percent": 10
+    },
+    "typography": {
+      "display": {"family": "Arial", "fallback": "Helvetica", "license_confirmed": true},
+      "body": {"family": "Arial", "fallback": "Helvetica", "license_confirmed": true},
+      "mono": {"family": "Courier New", "fallback": "monospace", "license_confirmed": true}
+    },
+    "layout": {"content_width_px": 1200, "page_padding_px": 64, "radius_px": 4, "composition": "Editorial asymmetry with strict alignment"},
+    "spacing": [8, 16, 24, 40, 64, 96],
+    "forbidden": ["blue-purple AI gradients", "glassmorphism", "decorative robot imagery", "dense card grids"]
+  },
+  "voice": {
+    "address": "direct and professional",
+    "tone": ["precise", "evidence-led", "calm", "decisive"],
+    "good_example": "We define where the model may reason and where code must enforce the rule.",
+    "bad_example": "Unlock revolutionary AI magic and supercharge your journey.",
+    "banned_terms": ["revolutionary", "supercharge", "game-changing", "magic"]
+  },
+  "formats": [
+    {"id": "web-desktop", "width": 1440, "height": 1000, "unit": "px"},
+    {"id": "presentation", "width": 13.333, "height": 7.5, "unit": "in"}
+  ],
+  "imagery": {
+    "modes": ["photography", "generated"],
+    "allowed": ["real enterprise work", "architectural compositions", "controlled abstract systems"],
+    "forbidden": ["fake dashboards with readable data", "holographic brains", "unapproved logos"],
+    "people_policy": "Use approved people or clearly fictional non-identifiable subjects; never imply a real event that did not occur.",
+    "disclosure_policy": "Assess jurisdiction and use case; disclose generated/manipulated content when required or voluntarily appropriate."
+  },
+  "governance": {
+    "owner": "AI SHIFT Brand Owner",
+    "approval_required": true,
+    "deviation_policy": "Record the deviation, rationale, scope, approver, and expiry before external release."
+  },
+  "references": [
+    {"name": "Editorial enterprise systems", "use": "precision and hierarchy", "avoid": "literal imitation"}
+  ],
+  "open_decisions": []
+}

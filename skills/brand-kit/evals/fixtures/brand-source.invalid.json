@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "brand": {"id": "invalid", "name": "Invalid", "version": "0", "language": "en"},
+  "positioning": {"one_liner": "Modern.", "audiences": [], "category": "", "promise": "", "differentiators": [], "evidence": []},
+  "personality": {"traits": ["modern"], "anti_traits": []},
+  "architecture": {"model": "single-brand", "rules": []},
+  "visual": {
+    "colors": {"background": "blue", "surface": "#000000", "text": "#FFFFFF", "muted": "#AAAAAA", "border": "#333333", "accent": "#FF00FF", "accent_ink": "#000000", "accent_max_percent": 90},
+    "typography": {
+      "display": {"family": "Unknown", "fallback": "sans-serif", "license_confirmed": false},
+      "body": {"family": "Unknown", "fallback": "sans-serif", "license_confirmed": false},
+      "mono": {"family": "Unknown", "fallback": "monospace", "license_confirmed": false}
+    },
+    "layout": {"content_width_px": 100, "page_padding_px": 0, "radius_px": 100, "composition": ""},
+    "spacing": [8],
+    "forbidden": []
+  },
+  "voice": {"address": "", "tone": [], "good_example": "", "bad_example": "", "banned_terms": []},
+  "formats": [],
+  "imagery": {"modes": ["generated"], "allowed": [], "forbidden": [], "people_policy": "", "disclosure_policy": ""},
+  "governance": {"owner": "", "approval_required": true, "deviation_policy": ""},
+  "open_decisions": ["Everything"]
+}

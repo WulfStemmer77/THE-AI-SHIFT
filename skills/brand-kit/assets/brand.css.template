@@ -1,0 +1,30 @@
+:root {
+  --brand-bg: <BACKGROUND>;
+  --brand-surface: <SURFACE>;
+  --brand-text: <TEXT>;
+  --brand-muted: <MUTED>;
+  --brand-border: <BORDER>;
+  --brand-accent: <ACCENT>;
+  --brand-accent-ink: <ACCENT_INK>;
+  --brand-font-display: <DISPLAY_STACK>;
+  --brand-font-body: <BODY_STACK>;
+  --brand-font-mono: <MONO_STACK>;
+  --brand-content-width: <CONTENT_WIDTH>px;
+  --brand-page-padding: <PAGE_PADDING>px;
+  --brand-radius: <RADIUS>px;
+  --brand-space-1: <SPACE_1>px;
+  --brand-space-2: <SPACE_2>px;
+  --brand-space-3: <SPACE_3>px;
+  --brand-space-4: <SPACE_4>px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--brand-font-body);
+  line-height: 1.55;
+}
+h1, h2, h3 { font-family: var(--brand-font-display); }
+:focus-visible { outline: 3px solid var(--brand-accent); outline-offset: 3px; }

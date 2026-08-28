@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ai-shift:brand-kit:package:1.0.0",
+  "title": "Generated brand token package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brand", "positioning", "personality", "visual", "voice", "formats", "imagery", "governance", "build"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "brand": {"type": "object", "required": ["id", "name", "version", "language"]},
+    "positioning": {"type": "object", "required": ["one_liner", "audiences", "promise", "differentiators"]},
+    "personality": {"type": "object", "required": ["traits", "anti_traits"]},
+    "visual": {"type": "object", "required": ["colors", "typography", "layout", "spacing", "forbidden"]},
+    "voice": {"type": "object", "required": ["address", "tone", "good_example", "bad_example", "banned_terms"]},
+    "formats": {"type": "array", "minItems": 1},
+    "imagery": {"type": "object", "required": ["modes", "allowed", "forbidden", "people_policy", "disclosure_policy"]},
+    "governance": {"type": "object", "required": ["owner", "approval_required", "deviation_policy"]},
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generator", "generator_version", "source_hash"],
+      "properties": {
+        "generator": {"const": "ai-shift-brand-kit"},
+        "generator_version": {"const": "1.0.0"},
+        "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}
