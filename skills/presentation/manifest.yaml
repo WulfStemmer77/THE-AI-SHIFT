@@ -1,0 +1,22 @@
+name: presentation
+package_version: 0.1.0
+status: pilot
+owner: THE-AI-SHIFT
+contracts:
+  deck_schema: 1.0.0
+  brand_schema: 1.0.0
+  adapter_contract: 1.0.0
+runtime:
+  deterministic_geometry: true
+  human_release_gate: required
+  max_revision_attempts: 2
+supported_outputs:
+  - pptx
+  - pdf
+supported_profiles:
+  - codex
+  - microsoft-copilot-studio
+certification:
+  requires_brand_package: true
+  requires_golden_slides: true
+  requires_rendered_visual_qa: true

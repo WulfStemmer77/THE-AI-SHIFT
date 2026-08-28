@@ -1,0 +1,16 @@
+{
+  "registry_version": "1.0.0",
+  "brand_id": "afa",
+  "status": "blocked-missing-approved-assets",
+  "required_cases": [
+    "cover",
+    "section",
+    "content-with-image",
+    "metrics",
+    "product-platform-cards",
+    "comparison",
+    "chart",
+    "close"
+  ],
+  "entries": []
+}

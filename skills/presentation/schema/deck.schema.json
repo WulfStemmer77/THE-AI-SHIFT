@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ai-shift.example/schemas/presentation/deck-1.0.0.json",
+  "title": "Governed Presentation Slide Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run", "deck", "sources", "slides"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "skill_version", "brand_id", "brand_version", "renderer_version", "adapter", "mode"],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "skill_version": {"type": "string", "minLength": 1},
+        "brand_id": {"type": "string", "minLength": 1},
+        "brand_version": {"type": "string", "minLength": 1},
+        "renderer_version": {"type": "string", "minLength": 1},
+        "adapter": {"enum": ["codex", "microsoft-copilot-studio"]},
+        "mode": {"enum": ["live", "replay"]},
+        "context_hash": {"type": "string"},
+        "input_hash": {"type": "string"}
+      }
+    },
+    "deck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "audience", "purpose", "format", "release_class"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1, "maxLength": 120},
+        "audience": {"type": "string", "minLength": 1},
+        "purpose": {"type": "string", "minLength": 1},
+        "format": {"enum": ["16:9", "A4-landscape"]},
+        "release_class": {"enum": ["internal-draft", "external"]},
+        "language": {"type": "string", "default": "en"}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "locator"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^SRC-[A-Za-z0-9_-]+$"},
+          "title": {"type": "string", "minLength": 1},
+          "locator": {"type": "string", "minLength": 1},
+          "version": {"type": "string"},
+          "hash": {"type": "string"}
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 60,
+      "items": {"$ref": "#/$defs/slide"}
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["pending", "approved", "rejected"]},
+        "approved_by": {"type": "string"},
+        "timestamp": {"type": "string", "format": "date-time"}
+      }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "kind"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1, "maxLength": 400},
+        "kind": {"enum": ["fact", "assumption", "unknown"]},
+        "source_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "slide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slide_id", "layout_id", "title", "content"],
+      "properties": {
+        "slide_id": {"type": "string", "pattern": "^SLIDE-[0-9]{2,3}$"},
+        "layout_id": {"type": "string", "minLength": 1},
+        "section_label": {"type": "string", "maxLength": 40},
+        "title": {"type": "string", "minLength": 1, "maxLength": 90},
+        "summary": {"type": "string", "maxLength": 240},
+        "content": {"type": "object"},
+        "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+        "asset_source_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "speaker_notes": {"type": "string"}
+      }
+    }
+  }
+}

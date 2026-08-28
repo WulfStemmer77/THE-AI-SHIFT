@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "run": {
+    "run_id": "RUN-EVAL-001",
+    "skill_version": "0.1.0",
+    "brand_id": "afa",
+    "brand_version": "0.1.0-draft",
+    "renderer_version": "not-certified",
+    "adapter": "codex",
+    "mode": "replay"
+  },
+  "deck": {
+    "title": "AFA Dispensing | Company Overview 2026",
+    "audience": "Prospective strategic partner",
+    "purpose": "Introduce capabilities and establish a next conversation",
+    "format": "16:9",
+    "release_class": "internal-draft",
+    "language": "en"
+  },
+  "sources": [
+    {"id": "SRC-001", "title": "Approved company overview source", "locator": "replay://source-001", "version": "1"}
+  ],
+  "slides": [
+    {
+      "slide_id": "SLIDE-01",
+      "layout_id": "cover_v1",
+      "title": "AFA Dispensing | Company Overview 2026",
+      "content": {"subtitle": "Connect. Collaborate. Create."},
+      "claims": []
+    },
+    {
+      "slide_id": "SLIDE-02",
+      "layout_id": "statement_v1",
+      "title": "Precision meets premium user experience",
+      "summary": "A concise, evidence-led positioning statement.",
+      "content": {"statement": "Co-create dispensing experiences with global expertise and local support."},
+      "claims": [
+        {"text": "The positioning is drawn from the approved company overview.", "kind": "fact", "source_ids": ["SRC-001"]}
+      ]
+    }
+  ],
+  "approval": {"status": "pending"}
+}

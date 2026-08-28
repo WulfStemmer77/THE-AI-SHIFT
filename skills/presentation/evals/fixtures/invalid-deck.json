@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "run": {
+    "run_id": "RUN-EVAL-002",
+    "skill_version": "0.1.0",
+    "brand_id": "afa",
+    "brand_version": "0.1.0-draft",
+    "renderer_version": "not-certified",
+    "adapter": "codex",
+    "mode": "replay"
+  },
+  "deck": {
+    "title": "Invalid evaluation fixture",
+    "audience": "Internal QA",
+    "purpose": "Prove hard failures",
+    "format": "16:9",
+    "release_class": "internal-draft"
+  },
+  "sources": [],
+  "slides": [
+    {
+      "slide_id": "SLIDE-01",
+      "layout_id": "invented_layout",
+      "title": "Unsupported claim",
+      "content": {},
+      "claims": [
+        {"text": "A factual statement without a source.", "kind": "fact", "source_ids": []},
+        {"text": "A factual statement with an unknown source.", "kind": "fact", "source_ids": ["SRC-MISSING"]}
+      ]
+    }
+  ],
+  "approval": {"status": "pending"}
+}

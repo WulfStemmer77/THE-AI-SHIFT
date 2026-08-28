@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ai-shift.example/schemas/presentation/brand-1.0.0.json",
+  "title": "Presentation Brand Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brand_id", "brand_version", "certification_status", "slide_formats", "approved_layouts", "tokens", "assets", "golden_slides"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "brand_id": {"type": "string", "minLength": 1},
+    "brand_version": {"type": "string", "minLength": 1},
+    "certification_status": {"enum": ["draft", "candidate", "certified", "deprecated"]},
+    "slide_formats": {"type": "array", "items": {"enum": ["16:9", "A4-landscape"]}, "minItems": 1, "uniqueItems": true},
+    "approved_layouts": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "tokens": {
+      "type": "object",
+      "required": ["margins", "typography", "colors", "logo", "footer", "page_number"],
+      "properties": {
+        "margins": {"type": "object"},
+        "typography": {"type": "object"},
+        "colors": {"type": "object"},
+        "gradients": {"type": "object"},
+        "logo": {"type": "object"},
+        "footer": {"type": "object"},
+        "page_number": {"type": "object"}
+      }
+    },
+    "assets": {"type": "array", "items": {"type": "object", "required": ["id", "path", "hash"]}},
+    "golden_slides": {"type": "array", "items": {"type": "object", "required": ["id", "path", "hash"]}},
+    "approved_by": {"type": "string"},
+    "approved_at": {"type": "string", "format": "date-time"}
+  }
+}

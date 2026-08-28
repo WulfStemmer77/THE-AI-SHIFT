@@ -1,0 +1,28 @@
+{
+  "eval_version": "1.0.0",
+  "skill_version": "0.1.0",
+  "cases": [
+    {
+      "id": "valid-minimal-deck",
+      "input": "fixtures/valid-deck.json",
+      "brand": "../brands/afa/brand.json",
+      "expected_exit_code": 0,
+      "release_target": "internal-draft"
+    },
+    {
+      "id": "reject-unsupported-claims-and-layout",
+      "input": "fixtures/invalid-deck.json",
+      "brand": "../brands/afa/brand.json",
+      "expected_exit_code": 1,
+      "expected_error_codes": ["E_LAYOUT_NOT_APPROVED", "E_FACT_SOURCE_REQUIRED", "E_SOURCE_UNKNOWN"]
+    }
+  ],
+  "release_thresholds": {
+    "schema_compliance": 1.0,
+    "brand_compliance": 1.0,
+    "layout_compliance": 1.0,
+    "source_correctness": 1.0,
+    "visual_qa": 1.0,
+    "human_approval": 1.0
+  }
+}

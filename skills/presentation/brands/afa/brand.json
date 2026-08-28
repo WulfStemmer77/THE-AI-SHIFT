@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "brand_id": "afa",
+  "brand_version": "0.1.0-draft",
+  "certification_status": "draft",
+  "slide_formats": ["16:9", "A4-landscape"],
+  "approved_layouts": [
+    "cover_v1",
+    "section_v1",
+    "statement_v1",
+    "content_v1",
+    "comparison_v1",
+    "metrics_v1",
+    "cards_v1",
+    "timeline_v1",
+    "chart_v1",
+    "close_v1"
+  ],
+  "tokens": {
+    "margins": {"status": "required-from-approved-master"},
+    "typography": {"status": "required-font-assets-and-sizes"},
+    "colors": {"status": "required-exact-color-tokens"},
+    "gradients": {"status": "required-exact-hero-gradient"},
+    "logo": {"status": "required-light-dark-assets-and-fixed-geometry"},
+    "footer": {"status": "required-fixed-geometry"},
+    "page_number": {"status": "required-fixed-geometry"}
+  },
+  "assets": [],
+  "golden_slides": []
+}
