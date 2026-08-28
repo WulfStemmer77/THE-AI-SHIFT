@@ -21,6 +21,19 @@ Do not claim Krea is connected merely because the server URL is configured. Perf
 
 Never place a real token in prompts, `brand-source.json`, media requests, logs, generated artifacts, Git, or MCP configuration committed to a repository.
 
+## Credential and tenant isolation
+
+The adapter is generic and must not be primed with any individual's account or credentials.
+
+- Resolve OAuth sessions through the current host/client at execution time.
+- Resolve API tokens through the current tenant's secret store at execution time.
+- Never fall back to a remembered personal session, default account, email address, or hard-coded workspace.
+- Ask the executing user/tenant to select or confirm the workspace when the connection exposes more than one.
+- Store only an opaque tenant-local `workspace_reference`; never store an email, username, token, cookie, OAuth artifact, or credential identifier that is meaningful outside that tenant.
+- A successful connection in one environment says nothing about another environment. Run the harmless authenticated preflight separately for every deployment and session that requires it.
+
+The request contract enforces `credential_binding: runtime-injected`. Any personal/default/static binding must fail before execution.
+
 ## Live discovery is mandatory
 
 Before each production run, discover the currently available Krea operation and its schema. Do not rely on a remembered model list: models, parameter sets, and deprecations change. Pin the selected `model_id` or `workflow_id` and record a schema snapshot identifier/time in the run manifest.

@@ -1,14 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "urn:the-ai-shift:brand-kit:krea-media-request:1.0.0",
+  "$id": "urn:the-ai-shift:brand-kit:krea-media-request:1.1.0",
   "title": "Krea brand-governed media request",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "provider", "connection", "operation", "brand", "request", "governance"],
+  "required": ["schema_version", "provider", "connection", "credential_binding", "operation", "brand", "request", "governance"],
   "properties": {
-    "schema_version": {"const": "1.0.0"},
+    "schema_version": {"const": "1.1.0"},
     "provider": {"const": "krea"},
     "connection": {"enum": ["mcp-oauth", "api-token"]},
+    "credential_binding": {"const": "runtime-injected"},
     "operation": {"enum": ["generate-image", "generate-video", "enhance", "upscale", "run-workflow"]},
     "brand": {
       "type": "object",

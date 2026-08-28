@@ -64,13 +64,15 @@ def validate(request: Any) -> list[Finding]:
     findings: list[Finding] = []
     root = obj(request, "$", findings)
     scan_secrets(root, "$", findings)
-    unknown(root, {"schema_version", "provider", "connection", "operation", "brand", "request", "governance"}, "$", findings)
-    if root.get("schema_version") != "1.0.0":
-        findings.append(Finding("E_SCHEMA_VERSION", "$.schema_version", "Expected 1.0.0."))
+    unknown(root, {"schema_version", "provider", "connection", "credential_binding", "operation", "brand", "request", "governance"}, "$", findings)
+    if root.get("schema_version") != "1.1.0":
+        findings.append(Finding("E_SCHEMA_VERSION", "$.schema_version", "Expected 1.1.0."))
     if root.get("provider") != "krea":
         findings.append(Finding("E_PROVIDER", "$.provider", "Provider must be krea."))
     if root.get("connection") not in {"mcp-oauth", "api-token"}:
         findings.append(Finding("E_CONNECTION", "$.connection", "Expected mcp-oauth or api-token."))
+    if root.get("credential_binding") != "runtime-injected":
+        findings.append(Finding("E_CREDENTIAL_BINDING", "$.credential_binding", "Credentials must be injected by the current execution environment."))
     operation = root.get("operation")
     if operation not in OPERATIONS:
         findings.append(Finding("E_OPERATION", "$.operation", "Unsupported Krea operation."))
@@ -120,7 +122,9 @@ def validate(request: Any) -> list[Finding]:
 
     governance = obj(root.get("governance"), "$.governance", findings)
     unknown(governance, {"workspace_reference", "credit_spend_authorized", "max_attempts", "human_review_required"}, "$.governance", findings)
-    text(governance.get("workspace_reference"), "$.governance.workspace_reference", findings)
+    workspace_reference = text(governance.get("workspace_reference"), "$.governance.workspace_reference", findings)
+    if workspace_reference and ("@" in workspace_reference or "://" in workspace_reference):
+        findings.append(Finding("E_WORKSPACE_REFERENCE", "$.governance.workspace_reference", "Use an opaque tenant-local alias, not an email address or URL."))
     if governance.get("credit_spend_authorized") is not True:
         findings.append(Finding("E_CREDIT_AUTHORIZATION", "$.governance.credit_spend_authorized", "Credit spending must be explicitly authorized."))
     attempts = governance.get("max_attempts")

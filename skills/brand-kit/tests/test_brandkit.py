@@ -94,6 +94,13 @@ class BrandKitTests(unittest.TestCase):
         codes = {item.code for item in media_request.validate(request)}
         self.assertTrue({"E_SECRET_FIELD", "E_CREDIT_AUTHORIZATION"}.issubset(codes))
 
+    def test_krea_request_rejects_personal_or_static_credential_binding(self):
+        request = json.loads((ROOT / "evals" / "fixtures" / "krea-media-request.valid.json").read_text(encoding="utf-8"))
+        request["credential_binding"] = "personal-default"
+        request["governance"]["workspace_reference"] = "person@example.com"
+        codes = {item.code for item in media_request.validate(request)}
+        self.assertTrue({"E_CREDENTIAL_BINDING", "E_WORKSPACE_REFERENCE"}.issubset(codes))
+
 
 if __name__ == "__main__":
     unittest.main()

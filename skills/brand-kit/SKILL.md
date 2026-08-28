@@ -2,7 +2,7 @@
 name: brand-kit
 description: Discover, build, validate, or apply a reusable brand system when a user needs consistent visual identity, design tokens, voice rules, reference surfaces, or governed branded output. Use for new or existing brands; do not invent unresolved brand decisions or silently install external tools.
 metadata:
-  version: 1.1.0
+  version: 1.1.1
   status: pilot
 ---
 
@@ -25,6 +25,7 @@ If the request spans several modes, run them in that order and stop at any unres
 - Do not guess colors, fonts, positioning, forbidden language, logo geometry, or compliance decisions. Record unresolved items and ask for them.
 - Do not install global packages, authenticate external services, spend credits, publish externally, or mutate another repository without explicit authorization at that point.
 - Do not bind the package to one model, image provider, editor, or agent runtime.
+- Never prime a provider adapter with a specific person's credentials, account, workspace, remembered OAuth session, or personal environment. Resolve tenant credentials only at execution time through the host's authorized connection or secret store.
 - Use tokens instead of raw visual values in generated artifacts.
 - Keep brand rules concise and executable; preserve rationale separately as reference material.
 - Treat the generated `AGENTS.md` as project-local operating instructions. Platform adapters may derive other instruction files, but `BRAND.md` and `brand.tokens.json` remain authoritative.

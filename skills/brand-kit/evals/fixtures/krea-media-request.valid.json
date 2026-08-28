@@ -1,7 +1,8 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "provider": "krea",
   "connection": "mcp-oauth",
+  "credential_binding": "runtime-injected",
   "operation": "generate-image",
   "brand": {
     "id": "ai-shift-eval",
