@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-ai-shift:brand-kit:krea-media-request:1.0.0",
+  "title": "Krea brand-governed media request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "provider", "connection", "operation", "brand", "request", "governance"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "provider": {"const": "krea"},
+    "connection": {"enum": ["mcp-oauth", "api-token"]},
+    "operation": {"enum": ["generate-image", "generate-video", "enhance", "upscale", "run-workflow"]},
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "package_hash"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "package_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_or_workflow_id", "live_schema_checked_at", "prompt", "exclusions", "aspect_ratio", "input_assets"],
+      "properties": {
+        "model_or_workflow_id": {"type": "string", "minLength": 1},
+        "trained_style_id": {"type": ["string", "null"]},
+        "live_schema_checked_at": {"type": "string", "format": "date-time"},
+        "prompt": {"type": "string", "minLength": 20},
+        "exclusions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "aspect_ratio": {"type": "string", "pattern": "^[1-9][0-9]*:[1-9][0-9]*$"},
+        "input_assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "hash", "rights_confirmed"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "rights_confirmed": {"const": true}
+            }
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workspace_reference", "credit_spend_authorized", "max_attempts", "human_review_required"],
+      "properties": {
+        "workspace_reference": {"type": "string", "minLength": 1},
+        "credit_spend_authorized": {"const": true},
+        "max_attempts": {"type": "integer", "minimum": 1, "maximum": 6},
+        "human_review_required": {"const": true}
+      }
+    }
+  }
+}

@@ -25,6 +25,8 @@ Missing optional tooling must not block interview, build, validation, or HTML pu
 
 Use the provider already approved and available in the current environment. Possible routes include built-in image generation, an authorized MCP connector, or an approved CLI/API. Do not install or authenticate a provider merely because this skill mentions it.
 
+Krea is an explicitly supported optional adapter. When selected, read [providers/krea.md](providers/krea.md). Prefer its hosted MCP route in MCP-capable agents; use the API route only when the deployment requires direct server integration. Authentication, workspace selection, and credit spending remain explicit user/tenant actions.
+
 Record the selected execution profile in the run manifest. Provider choice must not alter the brand contract.
 
 ## External dependencies

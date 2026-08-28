@@ -2,7 +2,7 @@
 name: brand-kit
 description: Discover, build, validate, or apply a reusable brand system when a user needs consistent visual identity, design tokens, voice rules, reference surfaces, or governed branded output. Use for new or existing brands; do not invent unresolved brand decisions or silently install external tools.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   status: pilot
 ---
 
@@ -16,6 +16,7 @@ Turn explicit brand decisions into a portable, versioned package that people and
 - **Interview** — elicit positioning, visual, verbal, format, and governance decisions. Read [references/interview.md](references/interview.md).
 - **Build** — turn a completed `brand-source.json` into a working package. Read [references/build.md](references/build.md).
 - **Publish** — apply a validated package to web, documents, presentations, or images. Read [references/publish.md](references/publish.md); for AI-content disclosure also read [references/compliance.md](references/compliance.md).
+- **Krea media** — when Krea is selected for image, video, enhancement, upscaling, trained styles, or workflows, also read [references/providers/krea.md](references/providers/krea.md).
 
 If the request spans several modes, run them in that order and stop at any unresolved hard gate.
 
@@ -38,6 +39,7 @@ python scripts/brandkit.py preflight
 python scripts/brandkit.py build path/to/brand-source.json path/to/Brand
 python scripts/brandkit.py validate path/to/Brand
 python scripts/brandkit.py publish-demo path/to/Brand path/to/preview.html
+python scripts/validate_media_request.py path/to/krea-media-request.json
 ```
 
 For optional visible AI-content disclosure:

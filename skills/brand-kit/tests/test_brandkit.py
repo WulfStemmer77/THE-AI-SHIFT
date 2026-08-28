@@ -26,6 +26,7 @@ def load_module(name: str, path: Path):
 
 brandkit = load_module("ai_shift_brandkit", ROOT / "scripts" / "brandkit.py")
 ai_label = load_module("ai_shift_ai_label", ROOT / "scripts" / "ai_label.py")
+media_request = load_module("ai_shift_media_request", ROOT / "scripts" / "validate_media_request.py")
 
 
 class BrandKitTests(unittest.TestCase):
@@ -81,6 +82,17 @@ class BrandKitTests(unittest.TestCase):
             self.assertEqual("PASS", result["status"])
             with Image.open(output) as im:
                 self.assertEqual((1120, 630), im.size)
+
+    def test_krea_media_request_contract_passes(self):
+        request = json.loads((ROOT / "evals" / "fixtures" / "krea-media-request.valid.json").read_text(encoding="utf-8"))
+        self.assertEqual([], media_request.validate(request))
+
+    def test_krea_request_rejects_secrets_and_unapproved_spend(self):
+        request = json.loads((ROOT / "evals" / "fixtures" / "krea-media-request.valid.json").read_text(encoding="utf-8"))
+        request["api_token"] = "krea_secret_should_never_be_here"
+        request["governance"]["credit_spend_authorized"] = False
+        codes = {item.code for item in media_request.validate(request)}
+        self.assertTrue({"E_SECRET_FIELD", "E_CREDIT_AUTHORIZATION"}.issubset(codes))
 
 
 if __name__ == "__main__":

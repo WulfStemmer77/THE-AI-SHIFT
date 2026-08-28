@@ -1,5 +1,5 @@
 name: brand-kit
-package_version: 1.0.0
+package_version: 1.1.0
 status: pilot
 owner: THE-AI-SHIFT
 source:
@@ -11,9 +11,21 @@ modes:
   - interview
   - build
   - publish
+optional_media_adapters:
+  - provider: krea
+    operations:
+      - generate-image
+      - generate-video
+      - enhance
+      - upscale
+      - run-workflow
+    transports:
+      - mcp-oauth
+      - api-token
 contracts:
   source_schema: 1.0.0
   package_schema: 1.0.0
+  krea_media_request_schema: 1.0.0
 runtime:
   provider_neutral: true
   deterministic_build: true

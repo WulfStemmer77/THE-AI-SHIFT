@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "provider": "krea",
+  "connection": "mcp-oauth",
+  "operation": "generate-image",
+  "brand": {
+    "id": "ai-shift-eval",
+    "version": "1.0.0",
+    "package_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "request": {
+    "model_or_workflow_id": "live-discovered-model-id",
+    "trained_style_id": null,
+    "live_schema_checked_at": "2026-08-28T00:00:00Z",
+    "prompt": "Editorial enterprise architecture photographed with strict alignment, calm directional light, and premium material restraint.",
+    "exclusions": ["readable fake data", "unapproved logos", "blue-purple AI gradients", "watermarks"],
+    "aspect_ratio": "16:9",
+    "input_assets": []
+  },
+  "governance": {
+    "workspace_reference": "workspace-approved-for-eval",
+    "credit_spend_authorized": true,
+    "max_attempts": 2,
+    "human_review_required": true
+  }
+}

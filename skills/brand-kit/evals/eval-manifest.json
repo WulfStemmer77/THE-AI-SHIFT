@@ -1,6 +1,6 @@
 {
   "eval_version": "1.0.0",
-  "skill_version": "1.0.0",
+  "skill_version": "1.1.0",
   "cases": [
     {
       "id": "complete-headless-workflow",
@@ -13,6 +13,12 @@
       "input": "fixtures/brand-source.invalid.json",
       "expected_status": "FAIL",
       "expected_error_codes": ["E_OPEN_DECISIONS", "E_FONT_LICENSE", "E_COLOR_HEX", "E_ACCENT_PERCENT"]
+    },
+    {
+      "id": "validate-krea-media-request",
+      "command": "python scripts/validate_media_request.py evals/fixtures/krea-media-request.valid.json",
+      "expected_status": "PASS",
+      "assertions": ["no stored credentials", "explicit credit authorization", "bounded attempts", "human review", "live schema timestamp"]
     }
   ],
   "release_thresholds": {
@@ -21,6 +27,7 @@
     "source_validation": 1.0,
     "package_validation": 1.0,
     "identity_cleanup": 1.0,
-    "headless_execution": 1.0
+    "headless_execution": 1.0,
+    "krea_request_contract": 1.0
   }
 }

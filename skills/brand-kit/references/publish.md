@@ -17,6 +17,8 @@ Never invent prices, dates, metrics, addresses, testimonials, certifications, cu
 
 Start from the imagery contract in `brand.tokens.json`. Prompts must state composition, aspect ratio, subject placement, lighting, intended crop, allowed motifs, and explicit exclusions. Provider selection is an adapter decision, not part of the brand.
 
+When Krea is selected, use the dedicated [Krea media adapter](providers/krea.md). Validate the request contract before invoking Krea, discover the current model/tool schema live, and preserve Krea job IDs and execution metadata in the provenance record.
+
 ## Visible disclosure helper
 
 Use `scripts/ai_label.py` only after determining that a label is required or voluntarily desired. It provides a visible text label and optional metadata writing; it does not establish legal compliance by itself and does not replace provider-side machine-readable marking.

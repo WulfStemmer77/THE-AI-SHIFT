@@ -54,6 +54,7 @@ def main() -> int:
     build_b = run([python, str(ROOT / "scripts" / "brandkit.py"), "build", str(source), str(second)])
     validation = run([python, str(ROOT / "scripts" / "brandkit.py"), "validate", str(first)])
     demo = run([python, str(ROOT / "scripts" / "brandkit.py"), "publish-demo", str(first), str(workdir / "published.html")])
+    krea_request = run([python, str(ROOT / "scripts" / "validate_media_request.py"), str(ROOT / "evals" / "fixtures" / "krea-media-request.valid.json")])
     hashes_a, hashes_b = tree_hashes(first), tree_hashes(second)
     if hashes_a != hashes_b:
         raise RuntimeError("Deterministic build check failed: output trees differ.")
@@ -88,6 +89,7 @@ def main() -> int:
         "validation": validation["status"],
         "publish_demo": demo["status"],
         "image_path": labelled["status"],
+        "krea_request_contract": krea_request["status"],
         "identity_leak_check": "PASS",
     }
     print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True))
