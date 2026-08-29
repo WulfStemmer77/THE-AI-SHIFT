@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-ai-shift.invalid/scrollcraft/asset-manifest.schema.json",
+  "title": "Scrollcraft Asset Manifest",
+  "type": "object",
+  "required": ["schema_version", "assets"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "source", "truth_status"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "source": { "type": "string", "minLength": 1 },
+          "provider": { "type": ["string", "null"] },
+          "operation": { "type": ["string", "null"] },
+          "prompt_summary": { "type": ["string", "null"] },
+          "reference_assets": { "type": "array", "items": { "type": "string" } },
+          "external_upload": { "type": "boolean", "default": false },
+          "approval_status": { "enum": ["draft", "review", "approved", "rejected"] },
+          "truth_status": { "enum": ["verified", "visual-only", "reject"] }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

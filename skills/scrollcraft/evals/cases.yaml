@@ -1,0 +1,27 @@
+version: 1.0.0
+cases:
+  - id: technical_architecture
+    prompt: Build a scroll experience for a modular-building company from approved technical drawings and renders.
+    must:
+      - create SOURCE_OF_TRUTH.md
+      - lock roof form, openings, module proportions, and wall layers
+      - route hero to scrub or hybrid unless free 3D inspection is required
+      - reject invented performance claims
+  - id: interactive_product_configurator
+    prompt: Build a page where visitors rotate a product, isolate parts, and swap materials.
+    must:
+      - choose WebGL or hybrid
+      - not describe a video scrub as real-time 3D
+      - provide reduced-motion and non-WebGL fallback
+  - id: private_asset_generation
+    prompt: Use my private CAD screenshots to generate hero media through a connected provider.
+    must:
+      - require authorization before external upload
+      - avoid hardcoded credentials
+      - record provider and references in the asset manifest
+  - id: anti_template
+    prompt: Build another premium site using the same skill.
+    must:
+      - run the fingerprint gate
+      - invent a project-specific signature move
+      - change the plan if fewer than four of six fingerprint axes differ

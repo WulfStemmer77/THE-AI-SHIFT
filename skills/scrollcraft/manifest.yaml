@@ -1,0 +1,51 @@
+name: scrollcraft
+package_version: 1.0.0
+status: pilot
+owner: THE-AI-SHIFT
+source:
+  upstream_repository: https://github.com/nateherkai/scroll-craft
+  upstream_commit: e95798551874854cef6dd3996ec7de1364a82bbd
+  upstream_plugin_version: 0.2.0
+  license: MIT
+  notice: THIRD_PARTY_NOTICES.md
+modes:
+  - interview
+  - plan
+  - scrub
+  - worldflight
+  - webgl
+  - hybrid
+  - verify
+optional_media_adapters:
+  - provider: krea
+    operations:
+      - generate-image
+      - generate-video
+      - enhance
+      - upscale
+      - run-workflow
+    transports:
+      - mcp-oauth
+      - api-token
+  - provider: generic
+    operations:
+      - generate-image
+      - generate-video
+      - transform
+    transports:
+      - mcp
+      - api-token
+contracts:
+  brief_schema: 1.0.0
+  source_of_truth_schema: 1.0.0
+  asset_manifest_schema: 1.0.0
+  validation_schema: 1.0.0
+runtime:
+  provider_neutral: true
+  semantic_dom_required: true
+  external_asset_upload_requires_authorization: true
+  technical_truth_gate: required_when_applicable
+  geometry_lock: required_when_applicable
+  browser_verification: required_when_available
+  real_device_mobile_check: recommended
+  human_release_gate: required
